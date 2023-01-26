@@ -11,13 +11,13 @@ public class Prestamo {
 	private int idLibro;
 	private int idSocio;
 	private Date fecha;
-	private Date devuelto;
+	private boolean devuelto;
 	
 	public Prestamo() {
 		
 	}
 	
-	public Prestamo(int idLibro, int idSocio, Date fecha, Date devuelto) {
+	public Prestamo(int idLibro, int idSocio, Date fecha, boolean devuelto) {
 		this.idLibro = idLibro;
 		this.idSocio = idSocio;
 		this.fecha = fecha;
@@ -42,10 +42,10 @@ public class Prestamo {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public Date getDevuelto() {
+	public boolean getDevuelto() {
 		return devuelto;
 	}
-	public void setDevuelto(Date devuelto) {
+	public void setDevuelto(boolean devuelto) {
 		this.devuelto = devuelto;
 	}
 	
