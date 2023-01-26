@@ -6,4 +6,5 @@
  *
  */
 module BibliotecaBBDD {
+	requires java.sql;
 }
