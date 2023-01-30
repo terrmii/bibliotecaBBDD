@@ -26,4 +26,7 @@ public class Menu {
 	public static void mostrarMenuPrestamos() {
 		System.out.println("1. Realizar prestamo");
 	}
+	
+	public static final int INSERTAR_LIBRO = 1;
+	public static final int ELIMINAR_LIBRO = 2;
 }
