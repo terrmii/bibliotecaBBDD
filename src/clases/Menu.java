@@ -29,4 +29,5 @@ public class Menu {
 	
 	public static final int INSERTAR_LIBRO = 1;
 	public static final int ELIMINAR_LIBRO = 2;
+	public static final int VER_SOCIOS = 1;
 }
