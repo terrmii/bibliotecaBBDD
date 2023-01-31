@@ -16,7 +16,7 @@ public class Menu {
 	public static void mostrarMenuLibros() {
 		System.out.println("1. Insertar libro");
 		System.out.println("2. Eliminar libro");
-		System.out.println("3. Ver libros");
+		System.out.println("3. Modificar libro");
 	}
 	
 	public static void mostrarMenuSocios() {
@@ -29,6 +29,8 @@ public class Menu {
 	
 	public static final int INSERTAR_LIBRO = 1;
 	public static final int ELIMINAR_LIBRO = 2;
+	public static final int MODIFICAR_LIBRO = 3;
+	
 	public static final int VER_SOCIOS = 1;
 	
 	public static final int GESTIONAR_LIBROS = 1;

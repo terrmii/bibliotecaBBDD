@@ -42,4 +42,17 @@ public class FormularioDeDatos {
 		return idLibro;
 	}
 	
+	public static String pedirModificar() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Que desea modificar: (titulo, autor, num_pag)?");
+		String modificar = scan.nextLine();
+		return modificar;
+	}
+	public static String nuevoValor() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Introduce el nuevo valor");
+		String nuevoValor = scan.nextLine();
+		return nuevoValor;
+	}
+	
 }

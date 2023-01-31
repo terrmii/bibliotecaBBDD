@@ -31,7 +31,17 @@ public class GestorBBDD {
 		con.conectar();
 		PreparedStatement eliminar = con.getCon().prepareStatement("DELETE FROM libros WHERE `libros`.`id` = ?");
 		eliminar.setInt(1, id);
+		eliminar.execute();
 	}
+	
+	public void modificarLibro(int id, String modificar, String nuevoValor) throws ClassNotFoundException, SQLException {
+		Conector con = new Conector();
+		con.conectar();
+		PreparedStatement ps = con.getCon().prepareStatement("UPDATE libros SET "+ modificar +" = ? WHERE id = ?");
+		ps.setString(1, nuevoValor);
+		ps.setInt(2, id);
+		ps.execute();
+		}
 	
 	public Libro getLibro(int id) {
 		

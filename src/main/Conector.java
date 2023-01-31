@@ -19,7 +19,7 @@ public class Conector {
 	
 	public void conectar() throws SQLException, ClassNotFoundException {
 		
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://" + host + "/" + bbdd, username, password);
 	}
 	public void cerrar() throws SQLException {

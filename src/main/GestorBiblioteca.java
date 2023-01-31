@@ -1,5 +1,6 @@
 package main;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import clases.Menu;
@@ -8,7 +9,8 @@ public class GestorBiblioteca {
 	
 
 	
-		public void run() {
+		@SuppressWarnings("static-access")
+		public void run() throws ClassNotFoundException, SQLException {
 		
 			Scanner scan = new Scanner(System.in);
 			int opcion;
@@ -17,24 +19,32 @@ public class GestorBiblioteca {
 			Menu.mostrarMenuPrincipal();
 
 			opcion = Integer.parseInt(scan.nextLine());
-		switch (opcion) {
-		
-		case Menu.GESTIONAR_LIBROS:
+		try {
+			switch (opcion) {
 			
-			new GestorLibros().run(scan);
-			break;
-		case Menu.GESTIONAR_SOCIOS:
+			case Menu.GESTIONAR_LIBROS:
+				
+				new GestorLibros().run(scan);
+				break;
+			case Menu.GESTIONAR_SOCIOS:
+				
+				new GestorSocios().run(scan);
+				break;
 			
-			new GestorSocios().run(scan);
-			break;
-		
-		case Menu.GESTIONAR_PRESTAMOS:
-			
-			System.out.println("Proximamente...");
-			break;
-			
-		default:
-			System.out.println("Opcion incorrecta");
+			case Menu.GESTIONAR_PRESTAMOS:
+				
+				System.out.println("Proximamente...");
+				break;
+				
+			default:
+				System.out.println("Opcion incorrecta");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		} while (opcion != Menu.SALIR);
 		
