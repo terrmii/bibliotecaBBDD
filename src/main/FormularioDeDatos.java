@@ -107,13 +107,10 @@ public class FormularioDeDatos {
 	}
 	
 	public static Date pedirFecha(Scanner scan) throws ParseException {
-		
-		System.out.println("Escribe la fecha: ");
+	    Date now = new Date();
 
-		String fechaComoTexto = scan.nextLine();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-		Date fecha = sdf.parse(fechaComoTexto);
-		return fecha;
+	    java.sql.Date sqlDate = new java.sql.Date(now.getTime());
+		return sqlDate;
 	}
 	
 	public static String pedirModificar() {
@@ -129,6 +126,17 @@ public class FormularioDeDatos {
 		String modificar = scan.nextLine();
 		scan.close();
 		return modificar;
+	}
+	public static Boolean devuelto(Scanner scan) {
+		
+		String texto;
+		texto = scan.nextLine();
+		if(texto == "S") {
+			return true;
+		}
+		else {
+		return false;
+				}
 	}
 	
 	public static String nuevoValor() {

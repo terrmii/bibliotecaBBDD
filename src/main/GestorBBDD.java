@@ -43,13 +43,13 @@ public class GestorBBDD {
 		insertar.setString(6, socio.getDni());
 		insertar.execute();
 	}
-	public void RealizarPrestamo(int idLibro, int idSocio, java.sql.Date fecha,Prestamo prestamo) throws ClassNotFoundException, SQLException {
+	public void RealizarPrestamo(int idLibro, int idSocio, Date date, Prestamo prestamo) throws ClassNotFoundException, SQLException {
 		Conector con = new Conector();
 		con.conectar();
 		PreparedStatement insertar = con.getCon().prepareStatement("INSERT INTO prestamos (id_libro, id_socio, fecha, devuelto) VALUES (?, ?, ?, ?) ");
 		insertar.setInt(1, idLibro);
 		insertar.setInt(2, idSocio);
-		insertar.setDate(3,  fecha);
+		insertar.setDate(3,  (java.sql.Date) date);
 		insertar.setBoolean(4, prestamo.getDevuelto());
 		insertar.execute();
 	}
