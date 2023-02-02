@@ -1,7 +1,9 @@
 package main;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import clases.Libro;
 
@@ -42,6 +44,28 @@ public class GestorBBDD {
 		ps.setInt(2, id);
 		ps.execute();
 		}
+	
+	public ArrayList<Libro> visualizarLibro() throws ClassNotFoundException, SQLException {
+		Conector con = new Conector();
+		con.conectar();
+		
+		PreparedStatement ps = con.getCon().prepareStatement("SELECT * FROM libros");
+		ps.execute();
+		ResultSet resultado = ps.executeQuery();
+		ArrayList<Libro> libros = new ArrayList<Libro>();
+		while (resultado.next()) {
+			Libro libro = new Libro();
+			libro.setId(resultado.getInt("id"));
+			libro.setTitulo(resultado.getString("titulo"));
+			libro.setAutor(resultado.getString("autor"));
+			libro.setNumPag(resultado.getInt("num_pag"));
+			
+			libros.add(libro);
+		}
+		
+		return libros;
+		
+	}
 	
 	public Libro getLibro(int id) {
 		

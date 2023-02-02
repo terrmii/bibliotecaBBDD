@@ -26,12 +26,18 @@ public class GestorLibros {
 			case Menu.ELIMINAR_LIBRO: 
 				int id = FormularioDeDatos.pedirIdLibro(scan);
 				bbdd.eliminarLibro(id);
+				break;
 			case Menu.MODIFICAR_LIBRO:
-				System.out.println("Eligue que id quieres modificar: ");
 				id = FormularioDeDatos.pedirIdLibro(scan);
 				bbdd.modificarLibro(id, FormularioDeDatos.pedirModificar(), FormularioDeDatos.nuevoValor());
+				break;
+			case Menu.VISUALIZAR_LIBROS:
+				Visor.mostrarLibros(bbdd.visualizarLibro());
+				break;
+			case Menu.SALIR:
+				new GestorBiblioteca().run();
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + opcion);
+				Visor.mostrarMensaje("Error");
 			}
 			
 		} while (opcion != 0);

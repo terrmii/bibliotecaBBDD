@@ -11,12 +11,15 @@ public class Menu {
 		System.out.println("1. Gestionar libros");
 		System.out.println("2. Gestionar socios");
 		System.out.println("3. Gestionar prestamos");
+		System.out.println("0. Salir");
 	}
 	
 	public static void mostrarMenuLibros() {
 		System.out.println("1. Insertar libro");
 		System.out.println("2. Eliminar libro");
 		System.out.println("3. Modificar libro");
+		System.out.println("4. Visualizar libros");
+		System.out.println("0. Atras");
 	}
 	
 	public static void mostrarMenuSocios() {
@@ -30,6 +33,7 @@ public class Menu {
 	public static final int INSERTAR_LIBRO = 1;
 	public static final int ELIMINAR_LIBRO = 2;
 	public static final int MODIFICAR_LIBRO = 3;
+	public static final int VISUALIZAR_LIBROS = 4;
 	
 	public static final int VER_SOCIOS = 1;
 	
