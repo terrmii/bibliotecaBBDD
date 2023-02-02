@@ -107,10 +107,28 @@ public class FormularioDeDatos {
 	}
 	
 	public static Date pedirFecha(Scanner scan) throws ParseException {
-	    Date now = new Date();
+	    System.out.println("Eliga: (Fecha actual) u (Otra fecha)");
+	    String opcion; 
+	    		opcion = scan.nextLine();
+	    if(opcion == "fecha actual") {
 
-	    java.sql.Date sqlDate = new java.sql.Date(now.getTime());
-		return sqlDate;
+	    	Date now = new Date();
+
+		    java.sql.Date sqlActual = new java.sql.Date(now.getTime());
+			return sqlActual;
+	    }
+	    else{
+	    	System.out.print("Ingrese una fecha (dd/MM/yyyy): ");
+	        String dateString = scan.nextLine();
+	        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	        Date date = formatter.parse(dateString);
+	        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+	        
+	    	return sqlDate;
+	    	
+	    }
+
+	
 	}
 	
 	public static String pedirModificar() {
@@ -128,9 +146,9 @@ public class FormularioDeDatos {
 		return modificar;
 	}
 	public static Boolean devuelto(Scanner scan) {
-		
+		System.out.println("Se ha devuelto el libro? (S / N)");
 		String texto;
-		texto = scan.nextLine();
+		texto = scan.nextLine().toUpperCase();
 		if(texto == "S") {
 			return true;
 		}
