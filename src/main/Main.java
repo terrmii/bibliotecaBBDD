@@ -1,6 +1,7 @@
 package main;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 
 /**
  * 
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 
 public class Main {
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException, ParseException {
 		// TODO Auto-generated method stub
 		new GestorBiblioteca().run();
 

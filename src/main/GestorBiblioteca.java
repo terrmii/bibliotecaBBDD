@@ -1,6 +1,7 @@
 package main;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 import clases.Menu;
@@ -10,7 +11,7 @@ public class GestorBiblioteca {
 
 	
 		@SuppressWarnings("static-access")
-		public void run() throws ClassNotFoundException, SQLException {
+		public void run() throws ClassNotFoundException, SQLException, ParseException {
 		
 			Scanner scan = new Scanner(System.in);
 			int opcion;

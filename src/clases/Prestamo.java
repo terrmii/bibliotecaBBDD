@@ -48,6 +48,11 @@ public class Prestamo {
 	public void setDevuelto(boolean devuelto) {
 		this.devuelto = devuelto;
 	}
+
+	public void setFecha(java.util.Date pedirFecha) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

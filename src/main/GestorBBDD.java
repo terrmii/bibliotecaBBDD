@@ -4,8 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import clases.Libro;
+import clases.Prestamo;
 import clases.Socio;
 
 /**
@@ -41,7 +43,16 @@ public class GestorBBDD {
 		insertar.setString(6, socio.getDni());
 		insertar.execute();
 	}
-	
+	public void RealizarPrestamo(int idLibro, int idSocio, java.sql.Date fecha,Prestamo prestamo) throws ClassNotFoundException, SQLException {
+		Conector con = new Conector();
+		con.conectar();
+		PreparedStatement insertar = con.getCon().prepareStatement("INSERT INTO prestamos (id_libro, id_socio, fecha, devuelto) VALUES (?, ?, ?, ?) ");
+		insertar.setInt(1, idLibro);
+		insertar.setInt(2, idSocio);
+		insertar.setDate(3,  fecha);
+		insertar.setBoolean(4, prestamo.getDevuelto());
+		insertar.execute();
+	}
 	public void eliminarLibro(int id) throws ClassNotFoundException, SQLException {
 		Conector con = new Conector();
 		con.conectar();
@@ -76,6 +87,7 @@ public class GestorBBDD {
 		ps.execute();
 		}
 	
+
 	public ArrayList<Libro> visualizarLibro() throws ClassNotFoundException, SQLException {
 		Conector con = new Conector();
 		con.conectar();
@@ -120,6 +132,7 @@ public class GestorBBDD {
 		}
 		
 		return socios;
+		
 		
 	}
 	

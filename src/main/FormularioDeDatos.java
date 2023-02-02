@@ -1,5 +1,9 @@
 package main;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import java.util.Scanner;
 
 import clases.Libro;
@@ -7,7 +11,7 @@ import clases.Socio;
 
 public class FormularioDeDatos {
 	public static Libro pedirDatosLibro(Scanner scan) {
-		//SIN HACER
+
 		Libro libro = new Libro();
 		System.out.println("Introduzca titulo: ");
 		String titulo = scan.nextLine();
@@ -23,7 +27,7 @@ public class FormularioDeDatos {
 	}
 	
 	public static Socio pedirDatosSocio(Scanner scan) {
-		//SIN HACER
+
 		Socio socio = new Socio();
 		System.out.println("Introduzca su nombre: ");
 		String nombre = scan.nextLine();
@@ -100,6 +104,16 @@ public class FormularioDeDatos {
 		int idSocio = Integer.parseInt(scan.nextLine());
 		
 		return idSocio;
+	}
+	
+	public static Date pedirFecha(Scanner scan) throws ParseException {
+		
+		System.out.println("Escribe la fecha: ");
+
+		String fechaComoTexto = scan.nextLine();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		Date fecha = sdf.parse(fechaComoTexto);
+		return fecha;
 	}
 	
 	public static String pedirModificar() {

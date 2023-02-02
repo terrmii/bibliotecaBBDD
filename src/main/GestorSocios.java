@@ -1,6 +1,7 @@
 package main;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 import clases.Menu;
@@ -8,7 +9,7 @@ import clases.Socio;
 
 public class GestorSocios {
 	@SuppressWarnings("static-access")
-	public static void run(Scanner scan) throws ClassNotFoundException, SQLException {
+	public static void run(Scanner scan) throws ClassNotFoundException, SQLException, ParseException {
 		int opcion;
 		GestorBBDD bbdd = new GestorBBDD();
 		

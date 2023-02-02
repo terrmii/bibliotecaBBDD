@@ -1,6 +1,8 @@
 package main;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 import clases.Menu;
@@ -8,7 +10,7 @@ import clases.Prestamo;
 
 public class GestorPrestamos {
 
-		public void run(Scanner scan) throws ClassNotFoundException, SQLException {
+		public void run(Scanner scan) throws ClassNotFoundException, SQLException, ParseException {
 			int opcion;
 			GestorBBDD bbdd = new GestorBBDD();
 			
@@ -19,7 +21,8 @@ public class GestorPrestamos {
 				
 				switch (opcion) {
 				case Menu.REALIZAR_PRESTAMO:
-					
+
+					bbdd.RealizarPrestamo(FormularioDeDatos.pedirIdLibro(scan),	FormularioDeDatos.pedirIdSocio(scan), (Date) FormularioDeDatos.pedirFecha(scan), prestamo);
 					break;
 				case Menu.DEVOLVER_LIBRO:
 					
