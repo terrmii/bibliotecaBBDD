@@ -32,6 +32,7 @@ public class Menu {
 	
 	public static void mostrarMenuPrestamos() {
 		System.out.println("1. Realizar prestamo");
+		System.out.println("2. Devolver libro");
 	}
 	
 	public static final int INSERTAR_LIBRO = 1;
@@ -50,4 +51,5 @@ public class Menu {
 	public static final int SALIR = 0;
 	
 	public static final int REALIZAR_PRESTAMO = 1;
+	public static final int DEVOLVER_LIBRO = 2;
 }

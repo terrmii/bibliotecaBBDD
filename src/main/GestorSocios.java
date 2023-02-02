@@ -34,6 +34,9 @@ public class GestorSocios {
 			case Menu.VER_SOCIOS:
 				Visor.mostrarSocios(bbdd.visualizarSocio());
 				break;
+				
+			case Menu.SALIR:
+				new GestorBiblioteca().run();
 			default:
 				Visor.mostrarMensaje(opcion + " no es un valor valido");
 			}
