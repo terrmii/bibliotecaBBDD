@@ -37,7 +37,7 @@ public class GestorLibros {
 			case Menu.SALIR:
 				new GestorBiblioteca().run();
 			default:
-				Visor.mostrarMensaje("Error");
+				Visor.mostrarMensaje(opcion + " no es un valor valido");
 			}
 			
 		} while (opcion != 0);

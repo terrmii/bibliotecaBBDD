@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import clases.Libro;
+import clases.Socio;
 
 /**
  * 
@@ -28,6 +29,19 @@ public class GestorBBDD {
 		insertar.execute();
 	}
 	
+	public void insertarSocio(Socio socio) throws ClassNotFoundException, SQLException {
+		Conector con = new Conector();
+		con.conectar();
+		PreparedStatement insertar = con.getCon().prepareStatement("INSERT INTO socios (nombre, apellido, direccion, poblacion, provincia, dni) VALUES (?, ?, ?, ?, ?, ?) ");
+		insertar.setString(1,  socio.getNombre());
+		insertar.setString(2, socio.getApellido());
+		insertar.setString(3, socio.getDireccion());
+		insertar.setString(4, socio.getPoblacion());
+		insertar.setString(5, socio.getProvincia());
+		insertar.setString(6, socio.getDni());
+		insertar.execute();
+	}
+	
 	public void eliminarLibro(int id) throws ClassNotFoundException, SQLException {
 		Conector con = new Conector();
 		con.conectar();
@@ -36,10 +50,27 @@ public class GestorBBDD {
 		eliminar.execute();
 	}
 	
+	public void eliminarSocio(int id) throws ClassNotFoundException, SQLException {
+		Conector con = new Conector();
+		con.conectar();
+		PreparedStatement eliminar = con.getCon().prepareStatement("DELETE FROM socios WHERE `socios`.`id` = ?");
+		eliminar.setInt(1, id);
+		eliminar.execute();
+	}
+	
 	public void modificarLibro(int id, String modificar, String nuevoValor) throws ClassNotFoundException, SQLException {
 		Conector con = new Conector();
 		con.conectar();
 		PreparedStatement ps = con.getCon().prepareStatement("UPDATE libros SET "+ modificar +" = ? WHERE id = ?");
+		ps.setString(1, nuevoValor);
+		ps.setInt(2, id);
+		ps.execute();
+		}
+	
+	public void modificarSocio(int id, String modificar, String nuevoValor) throws ClassNotFoundException, SQLException {
+		Conector con = new Conector();
+		con.conectar();
+		PreparedStatement ps = con.getCon().prepareStatement("UPDATE socios SET "+ modificar +" = ? WHERE id = ?");
 		ps.setString(1, nuevoValor);
 		ps.setInt(2, id);
 		ps.execute();
@@ -64,6 +95,31 @@ public class GestorBBDD {
 		}
 		
 		return libros;
+		
+	}
+	
+	public ArrayList<Socio> visualizarSocio() throws ClassNotFoundException, SQLException {
+		Conector con = new Conector();
+		con.conectar();
+		
+		PreparedStatement ps = con.getCon().prepareStatement("SELECT * FROM socios");
+		ps.execute();
+		ResultSet resultado = ps.executeQuery();
+		ArrayList<Socio> socios = new ArrayList<Socio>();
+		while (resultado.next()) {
+			Socio socio = new Socio();
+			socio.setId(resultado.getInt("id"));
+			socio.setNombre(resultado.getString("nombre"));
+			socio.setApellido(resultado.getString("apellido"));
+			socio.setDireccion(resultado.getString("direccion"));
+			socio.setPoblacion(resultado.getString("poblacion"));
+			socio.setProvincia(resultado.getString("provincia"));
+			socio.setDni(resultado.getString("dni"));
+			
+			socios.add(socio);
+		}
+		
+		return socios;
 		
 	}
 	
