@@ -33,7 +33,7 @@ public class GestorBiblioteca {
 			
 			case Menu.GESTIONAR_PRESTAMOS:
 				
-				System.out.println("Proximamente...");
+				new GestorPrestamos().run(scan);
 				break;
 				
 			case Menu.SALIR:
@@ -41,7 +41,7 @@ public class GestorBiblioteca {
 				System.exit(0);
 				break;
 			default:
-				System.out.println("Opcion incorrecta");
+				Visor.mostrarMensaje(opcion + " no es un valor valido");
 				break;
 			}
 		} catch (ClassNotFoundException e) {
