@@ -22,9 +22,10 @@ public class GestorPrestamos {
 				switch (opcion) {
 				case Menu.REALIZAR_PRESTAMO:
 
-					bbdd.RealizarPrestamo(FormularioDeDatos.pedirIdLibro(scan),	FormularioDeDatos.pedirIdSocio(scan), FormularioDeDatos.pedirFecha(scan), FormularioDeDatos.devuelto(scan));
+					bbdd.realizarPrestamo(FormularioDeDatos.pedirIdLibro(scan),	FormularioDeDatos.pedirIdSocio(scan), FormularioDeDatos.pedirFecha(scan), FormularioDeDatos.devuelto(scan));
 					break;
 				case Menu.DEVOLVER_LIBRO:
+					
 					
 					break;
 				case Menu.SALIR:

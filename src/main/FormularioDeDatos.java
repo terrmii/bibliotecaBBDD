@@ -108,16 +108,15 @@ public class FormularioDeDatos {
 	
 	public static Date pedirFecha(Scanner scan) throws ParseException {
 	    System.out.println("Eliga: (Fecha actual) u (Otra fecha)");
-	    String opcion; 
-	    		opcion = scan.nextLine();
-	    if(opcion == "fecha actual") {
+	    String opcion = scan.nextLine().toLowerCase();
+	    if(opcion.equals("fecha actual")) {
 
 	    	Date now = new Date();
 
 		    java.sql.Date sqlActual = new java.sql.Date(now.getTime());
 			return sqlActual;
 	    }
-	    else{
+	    else if (opcion.equals("otra fecha")){
 	    	System.out.print("Ingrese una fecha (dd/MM/yyyy): ");
 	        String dateString = scan.nextLine();
 	        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -126,6 +125,10 @@ public class FormularioDeDatos {
 	        
 	    	return sqlDate;
 	    	
+	    }
+	    else {
+	    	System.out.println("Introduzca un valor valido");
+	    	return null;
 	    }
 
 	
@@ -145,16 +148,24 @@ public class FormularioDeDatos {
 		scan.close();
 		return modificar;
 	}
-	public static Boolean devuelto(Scanner scan) {
+	public static int devuelto(Scanner scan) {
 		System.out.println("Se ha devuelto el libro? (S / N)");
-		String texto;
-		texto = scan.nextLine().toUpperCase();
-		if(texto == "S") {
-			return true;
+		String texto = scan.nextLine().toUpperCase();
+		if(texto.contains("S")) {
+			return 1;
 		}
 		else {
-		return false;
+		return 0;
 				}
+	}
+	
+	public static int devolverLibro(Scanner scan) {
+		System.out.println("Que libro se ha devuelto?");
+		String opcion = scan.nextLine();
+		
+		
+		
+		return 0;
 	}
 	
 	public static String nuevoValor() {
